@@ -1,5 +1,5 @@
 {
-	"name": "cmdbar",
+	"name": "@zacaw99/cmdbar",
 	"version": "0.0.1-alpha.0",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
