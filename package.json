@@ -1,6 +1,6 @@
 {
 	"name": "@zacaw99/cmdbar",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A lightweight, customizable command palette component for React & Next.js",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",

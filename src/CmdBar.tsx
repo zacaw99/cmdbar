@@ -199,6 +199,7 @@ export function CmdBar({
 }: CmdBarProps) {
 	const { isOpen, query, close, toggle, setQuery } = useCmdBar();
 	const inputRef = useRef<HTMLInputElement | null>(null);
+	const selectedItemRef = useRef<HTMLButtonElement | null>(null);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const baseTheme = theme?.mode === "light" ? LIGHT_THEME : DARK_THEME;
@@ -258,6 +259,15 @@ export function CmdBar({
 			setSelectedIndex(0);
 		}
 	}, [filteredItems.length, selectedIndex]);
+
+	useEffect(() => {
+		if (selectedItemRef.current) {
+			selectedItemRef.current.scrollIntoView({
+				behavior: "smooth",
+				block: "nearest",
+			});
+		}
+	}, [selectedIndex]);
 
 	if (!isOpen) return null;
 
@@ -475,6 +485,7 @@ export function CmdBar({
 												type="button"
 												onClick={() => handleSelect(item)}
 												disabled={item.disabled}
+												ref={isSelected ? selectedItemRef : null}
 												style={{
 													...getItemStyle(),
 													...(isSelected ? getItemSelectedStyle() : {}),
