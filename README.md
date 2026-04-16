@@ -14,7 +14,7 @@ Provides a beautiful, accessible command palette with full theming support, cust
 - 🔍 **Smart Search** - Filter by label, group, or keywords
 - ♿ **Accessible** - ARIA labels, keyboard navigation
 - 🪶 **No Dependencies** - Only requires React 18+
-- ⚡ **Lightweight** - ~10KB minified
+- ⚡ **Lightweight** - ~14KB unminified, ~3.5KB gzipped
 
 ---
 
