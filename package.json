@@ -1,23 +1,49 @@
 {
 	"name": "@zacaw99/cmdbar",
-	"version": "0.0.1-alpha.0",
+	"version": "1.0.0",
+	"description": "A lightweight, customizable command palette component for React & Next.js",
 	"main": "dist/index.js",
+	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"module": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"default": "./dist/index.mjs"
+		}
+	},
 	"files": [
 		"dist"
+	],
+	"keywords": [
+		"command-palette",
+		"cmdbar",
+		"react",
+		"nextjs",
+		"ui",
+		"component"
 	],
 	"scripts": {
 		"build": "tsup"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zacaw99/cmdbar"
+	},
+	"homepage": "https://github.com/zacaw99/cmdbar#readme",
+	"bugs": {
+		"url": "https://github.com/zacaw99/cmdbar/issues"
+	},
+	"author": "Zac",
+	"license": "MIT",
 	"peerDependencies": {
 		"react": ">=18"
 	},
 	"devDependencies": {
-		"@types/react": "^19.2.14"
-	},
-	"dependencies": {
-		"tsup": "^8.5.1",
 		"@types/node": "^24.0.0",
+		"@types/react": "^19.2.14",
+		"tsup": "^8.5.1",
 		"typescript": "^5.9.0"
 	}
 }
