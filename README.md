@@ -28,9 +28,9 @@ npm install @zacaw99/cmdbar
 
 ## 🚀 Quick Start
 
-### Option 1: Wrapper Component (Recommended)
+### Option 1: Next.js SSR Setup (Recommended)
 
-Create a **Client Component** for interactive items:
+For Next.js with Server and Client Components, create a **Client Component** wrapper:
 
 ```tsx
 // app/components/CommandPalette.tsx
@@ -60,7 +60,7 @@ export function CommandPalette() {
 }
 ```
 
-Then use in your Server Component layout:
+Then use in your **Server Component** layout:
 
 ```tsx
 // app/layout.tsx
@@ -78,25 +78,64 @@ export default function RootLayout({ children }) {
 }
 ```
 
-### Option 2: Basic Setup (No Callbacks)
+**Benefits:**
+- 🖥️ Server Component layout stays on the server
+- ⚡ Minimal client JavaScript
+- 🔒 Keep sensitive logic server-side
+- ✨ Best performance
 
-For simple usage without interactive callbacks:
+---
+
+### Option 2: React Setup
+
+For standalone React applications (Vite, Create React App, etc.):
 
 ```tsx
-// app/layout.tsx
-import { CmdBar } from "@zacaw99/cmdbar";
+// src/App.tsx
+import { CmdBar, type CmdBarItem } from "@zacaw99/cmdbar";
 
-export default function RootLayout({ children }) {
+const items: CmdBarItem[] = [
+	{
+		id: "home",
+		label: "Home",
+		group: "Navigation",
+		href: "/",
+	},
+	{
+		id: "settings",
+		label: "Settings",
+		group: "Account",
+		onSelect: () => {
+			// Handle settings
+		},
+	},
+	{
+		id: "logout",
+		label: "Logout",
+		group: "Account",
+		onSelect: () => {
+			// Handle logout
+		},
+	},
+];
+
+export default function App() {
 	return (
-		<html>
-			<body>
-				<CmdBar />
-				{children}
-			</body>
-		</html>
+		<div>
+			<CmdBar items={items} />
+			{/* Your app content */}
+		</div>
 	);
 }
 ```
+
+**Usage with Vite:**
+
+```bash
+npm install @zacaw99/cmdbar
+```
+
+Import in your component and pass items directly. Works everywhere React runs!
 
 ---
 
